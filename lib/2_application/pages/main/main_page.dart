@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:wizarding_world/2_application/core/services/theme_service.dart';
+import 'package:wizarding_world/2_application/pages/houses/houses_page.dart';
 import 'package:wizarding_world/2_application/pages/main/cubit/main_cubit.dart';
-import 'package:wizarding_world/2_application/pages/main/cubit/main_state.dart';
 
 class MainPageWrapperProvider extends StatelessWidget {
   const MainPageWrapperProvider({super.key});
@@ -23,7 +23,9 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
-    return Scaffold(
+    return DefaultTabController(
+      length: 3, // Number of tabs
+      child: Scaffold(
         appBar: AppBar(
           title: Text(
             'Wizarding World',
@@ -38,40 +40,25 @@ class MainPage extends StatelessWidget {
                       .toggleTheme();
                 })
           ],
-        ),
-        body: Expanded(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    context.read<MainCubit>().adviceRequested();
-                  },
-                  child: const Text('Get Advice'),
-                ),
-                BlocBuilder<MainCubit, WizardryCubitState>(
-                  builder: (context, state) {
-                    if (state is WizardryStateLoading) {
-                      return CircularProgressIndicator();
-                    } else if (state is WizardryStateLoaded) {
-                      return Text(
-                        "state.advice",
-                        style: themeData.textTheme.headlineMedium,
-                      );
-                    } else if (state is WizardryStateError) {
-                      return Text(
-                        state.message,
-                        style: themeData.textTheme.headlineMedium,
-                      );
-                    } else {
-                      return Container();
-                    }
-                  },
-                ),
-              ],
-            ),
+          bottom: const TabBar(
+            tabs: [
+              Tab(text: 'Houses'),
+              Tab(text: 'Spells'),
+              Tab(text: 'Elixirs'),
+            ],
           ),
-        ));
+        ),
+        body: const TabBarView(
+          children: [
+            // Content for Tab 1
+            HousesPage(),
+            // Content for Tab 2
+            Center(child: Text('Tab 2 Content')),
+            // Content for Tab 3
+            Center(child: Text('Tab 3 Content')),
+          ],
+        ),
+      ),
+    );
   }
 }
