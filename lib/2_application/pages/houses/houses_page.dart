@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wizarding_world/2_application/pages/houses/cubit/houses_cubit.dart';
 import 'package:wizarding_world/2_application/pages/houses/cubit/houses_state.dart';
+import 'package:wizarding_world/2_application/pages/houses/houses_information_page.dart';
 
 class HousesPage extends StatelessWidget {
   const HousesPage({Key? key}) : super(key: key);
@@ -44,6 +45,15 @@ class HousesPage extends StatelessWidget {
                           'Traits: ${house.traits.map((trait) => trait.name).join(', ')}'),
                     ],
                   ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            HouseInformationPage(house: house),
+                      ),
+                    );
+                  },
                 );
               },
             );
