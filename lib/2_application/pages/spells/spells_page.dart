@@ -28,13 +28,7 @@ class SpellsPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Type: ${spell.type}'),
-                      Text('Incantation: ${spell.incantation}'),
                       Text('Effect: ${spell.effect}'),
-                      Text(
-                          'Can be verbal? ${spell.canBeVerbal ? 'Yes' : 'No'}'),
-                      Text('Type: ${spell.type}'),
-                      Text(
-                          'Creator: ${spell.creator.isEmpty ? 'Unknown' : spell.creator}'),
                     ],
                   ),
                   onTap: () {
