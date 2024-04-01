@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:wizarding_world/2_application/core/services/theme_service.dart';
+import 'package:wizarding_world/2_application/pages/elixirs/elixirs_page.dart';
 import 'package:wizarding_world/2_application/pages/houses/houses_page.dart';
 import 'package:wizarding_world/2_application/pages/main/cubit/main_cubit.dart';
 import 'package:wizarding_world/2_application/pages/spells/spells_page.dart';
@@ -25,7 +26,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
     return DefaultTabController(
-      length: 3, // Number of tabs
+      length: 3,
       child: Scaffold(
         appBar: AppBar(
           title: Text(
@@ -51,12 +52,9 @@ class MainPage extends StatelessWidget {
         ),
         body: const TabBarView(
           children: [
-            // Content for Tab 1
             HousesPage(),
-            // Content for Tab 2
             SpellsPage(),
-            // Content for Tab 3
-            Center(child: Text('Tab 3 Content')),
+            ElixirsPage(),
           ],
         ),
       ),
