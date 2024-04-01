@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:wizarding_world/2_application/core/services/theme_service.dart';
 import 'package:wizarding_world/2_application/pages/houses/houses_page.dart';
 import 'package:wizarding_world/2_application/pages/main/cubit/main_cubit.dart';
+import 'package:wizarding_world/2_application/pages/spells/spells_page.dart';
 
 class MainPageWrapperProvider extends StatelessWidget {
   const MainPageWrapperProvider({super.key});
@@ -53,7 +54,7 @@ class MainPage extends StatelessWidget {
             // Content for Tab 1
             HousesPage(),
             // Content for Tab 2
-            Center(child: Text('Tab 2 Content')),
+            SpellsPage(),
             // Content for Tab 3
             Center(child: Text('Tab 3 Content')),
           ],

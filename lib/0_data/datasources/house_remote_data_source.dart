@@ -15,7 +15,6 @@ class HouseRemoteDataSourceImpl implements HouseRemoteDataSource {
 
   @override
   Future<List<HouseModel>> getHouses() async {
-    // https://wizard-world-api.herokuapp.com/Houses
     final response = await client.get(
         Uri.parse('https://wizard-world-api.herokuapp.com/Houses'),
         headers: {'content-type': 'application/json'});
