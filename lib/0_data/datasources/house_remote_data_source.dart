@@ -9,9 +9,9 @@ abstract class HouseRemoteDataSource {
 }
 
 class HouseRemoteDataSourceImpl implements HouseRemoteDataSource {
-  final http.Client client = http.Client();
+  final http.Client client;
 
-  // HouseRemoteDataSourceImpl({ required this.client });
+  HouseRemoteDataSourceImpl({required this.client});
 
   @override
   Future<List<HouseModel>> getHouses() async {

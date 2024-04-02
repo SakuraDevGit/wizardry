@@ -5,7 +5,9 @@ import 'package:wizarding_world/1_domain/failures/failures.dart';
 import 'package:wizarding_world/1_domain/repositories/house_repository.dart';
 
 class HouseRepositoryImpl implements HouseRepository {
-  final HouseRemoteDataSource remoteDataSource = HouseRemoteDataSourceImpl();
+  final HouseRemoteDataSource remoteDataSource;
+
+  HouseRepositoryImpl({required this.remoteDataSource});
 
   @override
   Future<Either<Failure, List<HouseEntity>>> getHouses() async {

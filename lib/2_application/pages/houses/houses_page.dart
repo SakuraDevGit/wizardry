@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wizarding_world/2_application/pages/houses/cubit/houses_cubit.dart';
 import 'package:wizarding_world/2_application/pages/houses/cubit/houses_state.dart';
+import 'package:wizarding_world/2_application/pages/houses/factory/house_factory.dart';
 import 'package:wizarding_world/2_application/pages/houses/houses_information_page.dart';
 
 class HousesPage extends StatelessWidget {
-  const HousesPage({Key? key}) : super(key: key);
+  const HousesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider<HousesCubit>(
-      create: (context) => HousesCubit()..housesRequested(),
+      create: (context) => HouseFactory.createCubit()..housesRequested(),
       child: BlocBuilder<HousesCubit, HousesCubitState>(
         builder: (context, state) {
           if (state is HousesStateLoading) {

@@ -5,11 +5,11 @@ import 'package:wizarding_world/1_domain/failures/failures.dart';
 import 'package:wizarding_world/1_domain/repositories/house_repository.dart';
 
 class GetHousesUseCase {
-  final HouseRepository _houseRepository = HouseRepositoryImpl();
+  final HouseRepository houseRepository;
 
-  // GetHousesUseCase(this._houseRepository);
+  GetHousesUseCase({required this.houseRepository});
 
   Future<Either<Failure, List<HouseEntity>>> getHouses() {
-    return _houseRepository.getHouses();
+    return houseRepository.getHouses();
   }
 }

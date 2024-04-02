@@ -4,10 +4,9 @@ import 'package:wizarding_world/1_domain/usecases/get_houses_usecase.dart';
 import 'package:wizarding_world/2_application/pages/houses/cubit/houses_state.dart';
 
 class HousesCubit extends Cubit<HousesCubitState> {
-  final GetHousesUseCase getHousesUseCase = GetHousesUseCase();
+  final GetHousesUseCase getHousesUseCase;
 
-  // MainCubit({required this.adviceUseCases}) : super(AdvicerInitial());
-  HousesCubit() : super(HousesStateInitial());
+  HousesCubit({required this.getHousesUseCase}) : super(HousesStateInitial());
 
   void housesRequested() async {
     emit(HousesStateLoading());
