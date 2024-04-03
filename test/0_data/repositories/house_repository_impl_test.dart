@@ -1,11 +1,9 @@
-import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:wizarding_world/0_data/datasources/house_remote_data_source.dart';
 import 'package:wizarding_world/0_data/models/house_model.dart';
 import 'package:wizarding_world/0_data/repositories/house_repository_impl.dart';
-import 'package:wizarding_world/1_domain/entities/house_entities/house_entity.dart';
 import 'package:wizarding_world/1_domain/failures/failures.dart';
 
 import 'house_repository_impl_test.mocks.dart';
