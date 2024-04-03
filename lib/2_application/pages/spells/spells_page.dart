@@ -14,7 +14,8 @@ class SpellsPage extends StatelessWidget {
       child: BlocBuilder<SpellsCubit, SpellsCubitState>(
         builder: (context, state) {
           if (state is SpellsStateLoading) {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(
+                child: CircularProgressIndicator(color: Colors.black));
           } else if (state is SpellsStateError) {
             return Center(child: Text(state.message));
           } else if (state is SpellsStateLoaded) {

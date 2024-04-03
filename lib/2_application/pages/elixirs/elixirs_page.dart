@@ -14,7 +14,8 @@ class ElixirsPage extends StatelessWidget {
       child: BlocBuilder<ElixirsCubit, ElixirsCubitState>(
         builder: (context, state) {
           if (state is ElixirsStateLoading) {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(
+                child: CircularProgressIndicator(color: Colors.black));
           } else if (state is ElixirsStateError) {
             return Center(child: Text(state.message));
           } else if (state is ElixirsStateLoaded) {

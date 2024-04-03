@@ -15,7 +15,10 @@ class HousesPage extends StatelessWidget {
       child: BlocBuilder<HousesCubit, HousesCubitState>(
         builder: (context, state) {
           if (state is HousesStateLoading) {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(
+                child: CircularProgressIndicator(
+              color: Colors.black,
+            ));
           } else if (state is HousesStateError) {
             return Center(child: Text(state.message));
           } else if (state is HousesStateLoaded) {

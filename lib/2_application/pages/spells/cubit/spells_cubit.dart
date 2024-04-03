@@ -10,15 +10,18 @@ class SpellsCubit extends Cubit<SpellsCubitState> {
   SpellsCubit() : super(SpellsStateInitial());
 
   void spellsRequested() async {
+    if (state is SpellsStateLoading) return;
     emit(SpellsStateLoading());
 
     final spellsOrFailure = await getSpellsUseCase.getSpells();
+    if (isClosed) return;
     spellsOrFailure.fold(
         (failure) => emit(SpellsStateError(message: failure.message())),
         (spells) => emit(SpellsStateLoaded(spells: spells)));
   }
 
   void spellRequested(String name, String type, String incantation) async {
+    if (state is SpellsStateLoading) return;
     if (name.isEmpty && type.isEmpty && incantation.isEmpty) {
       spellsRequested();
     } else {
@@ -26,6 +29,7 @@ class SpellsCubit extends Cubit<SpellsCubitState> {
 
       final spellsOrFailure =
           await getSpellsUseCase.getSpellsWith(name, type, incantation);
+      if (isClosed) return;
       spellsOrFailure.fold(
           (failure) => emit(SpellsStateError(message: failure.message())),
           (spells) => emit(SpellsStateLoaded(spells: spells)));

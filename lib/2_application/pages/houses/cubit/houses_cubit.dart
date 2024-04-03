@@ -9,9 +9,11 @@ class HousesCubit extends Cubit<HousesCubitState> {
   HousesCubit({required this.getHousesUseCase}) : super(HousesStateInitial());
 
   void housesRequested() async {
+    if (state is HousesStateLoading) return;
     emit(HousesStateLoading());
 
     final housesOrFailure = await getHousesUseCase.getHouses();
+    if (isClosed) return;
     housesOrFailure.fold(
         (failure) => emit(HousesStateError(message: failure.message())),
         (houses) => emit(HousesStateLoaded(houses: houses)));

@@ -9,9 +9,11 @@ class ElixirsCubit extends Cubit<ElixirsCubitState> {
   ElixirsCubit() : super(ElixirsStateInitial());
 
   void housesRequested() async {
+    if (state is ElixirsStateLoading) return;
     emit(ElixirsStateLoading());
 
     final housesOrFailure = await getElixirsUseCase.getElixirs();
+    if (isClosed) return;
     housesOrFailure.fold(
         (failure) => emit(ElixirsStateError(message: failure.message())),
         (elixirs) => emit(ElixirsStateLoaded(elixirs: elixirs)));
