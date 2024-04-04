@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:wizarding_world/0_data/datasources/spell_local_data_source.dart';
 import 'package:wizarding_world/0_data/models/spell_model.dart';
 import 'package:wizarding_world/1_domain/failures/failures.dart';
 
@@ -11,8 +12,7 @@ abstract class SpellRemoteDataSource {
 
 class SpellRemoteDataSourceImpl implements SpellRemoteDataSource {
   final http.Client client = http.Client();
-
-  // HouseRemoteDataSourceImpl({ required this.client });
+  final SpellLocalDataSource localDataSource = SpellLocalDataSource();
 
   @override
   Future<List<SpellModel>> getSpells() async {
@@ -25,6 +25,7 @@ class SpellRemoteDataSourceImpl implements SpellRemoteDataSource {
     }
 
     final responseBodyJson = jsonDecode(response.body);
+    await localDataSource.saveSpells(response.body);
     return responseBodyJson
         .map<SpellModel>((spell) => SpellModel.fromJson(spell))
         .toList();
