@@ -5,7 +5,7 @@ import 'package:wizarding_world/2_application/pages/spells/cubit/spells_state.da
 import 'package:wizarding_world/2_application/pages/spells/spells_information_page.dart';
 
 class SpellsPage extends StatelessWidget {
-  const SpellsPage({Key? key}) : super(key: key);
+  const SpellsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

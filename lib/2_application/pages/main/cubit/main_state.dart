@@ -11,13 +11,7 @@ final class WizardryStateInitial extends WizardryCubitState {}
 
 final class WizardryStateLoading extends WizardryCubitState {}
 
-final class WizardryStateLoaded extends WizardryCubitState {
-  // final String advice;
-  // const WizardryStateLoaded({required this.advice});
-
-  // @override
-  // List<Object?> get props => [advice];
-}
+final class WizardryStateLoaded extends WizardryCubitState {}
 
 final class WizardryStateError extends WizardryCubitState {
   final String message;
