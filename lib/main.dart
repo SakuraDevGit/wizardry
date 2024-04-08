@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:wizarding_world/0_data/hive/stored_json_hive.dart';
 import 'package:wizarding_world/2_application/core/services/theme_service.dart';
 import 'package:wizarding_world/2_application/pages/main/main_page.dart';
 import 'package:wizarding_world/theme.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(StoredJSONAdapter());
+
   runApp(ChangeNotifierProvider(
     create: (context) => ThemeService(),
     child: const MyApp(),
