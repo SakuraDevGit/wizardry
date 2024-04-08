@@ -6,13 +6,13 @@ import 'package:wizarding_world/1_domain/failures/failures.dart';
 import 'package:wizarding_world/1_domain/repositories/spell_repository.dart';
 
 class SpellRepositoryImpl implements SpellRepository {
-  final SpellRemoteDataSource remoteDataSource = SpellRemoteDataSourceImpl();
-  final SpellLocalDataSource localDataSource = SpellLocalDataSource();
+  final SpellRemoteDataSource remoteDataSource;
+  final SpellLocalDataSource localDataSource;
 
-  // HouseRepositoryImpl({
-  //   required this.remoteDataSource,
-  //   required this.localDataSource,
-  // });
+  SpellRepositoryImpl({
+    required this.remoteDataSource,
+    required this.localDataSource,
+  });
 
   @override
   Future<Either<Failure, List<SpellEntity>>> getSpells() async {

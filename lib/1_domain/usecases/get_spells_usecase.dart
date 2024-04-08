@@ -1,11 +1,12 @@
 import 'package:dartz/dartz.dart';
-import 'package:wizarding_world/0_data/repositories/spell_repository_impl.dart';
 import 'package:wizarding_world/1_domain/entities/spell_entities/spell_entity.dart';
 import 'package:wizarding_world/1_domain/failures/failures.dart';
 import 'package:wizarding_world/1_domain/repositories/spell_repository.dart';
 
 class GetSpellsUseCase {
-  final SpellRepository spellRepository = SpellRepositoryImpl();
+  final SpellRepository spellRepository;
+
+  GetSpellsUseCase({required this.spellRepository});
 
   Future<Either<Failure, List<SpellEntity>>> getSpells(
       {bool sortOrderIsAscending = true}) async {

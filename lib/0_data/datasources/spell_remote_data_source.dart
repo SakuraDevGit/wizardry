@@ -11,8 +11,11 @@ abstract class SpellRemoteDataSource {
 }
 
 class SpellRemoteDataSourceImpl implements SpellRemoteDataSource {
-  final http.Client client = http.Client();
-  final SpellLocalDataSource localDataSource = SpellLocalDataSource();
+  final http.Client client;
+  final SpellLocalDataSource localDataSource;
+
+  SpellRemoteDataSourceImpl(
+      {required this.client, required this.localDataSource});
 
   @override
   Future<List<SpellModel>> getSpells() async {
