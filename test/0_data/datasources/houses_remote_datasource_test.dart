@@ -2,12 +2,15 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
 import 'package:http/testing.dart';
 import 'package:mockito/annotations.dart';
-import 'package:wizarding_world/0_data/datasources/house_remote_data_source.dart';
+import 'package:wizarding_world/0_data/datasources/house/house_local_data_source.dart';
+import 'package:wizarding_world/0_data/datasources/house/house_remote_data_source.dart';
 import 'package:wizarding_world/0_data/models/house_model.dart';
 import 'package:wizarding_world/1_domain/entities/house_entities/head_entity.dart';
 import 'package:wizarding_world/1_domain/entities/house_entities/trait_entity.dart';
 
-@GenerateNiceMocks([MockSpec<Client>()])
+import 'houses_remote_datasource_test.mocks.dart';
+
+@GenerateNiceMocks([MockSpec<HouseLocalDataSource>()])
 void main() {
   const housesResponseBody = '''
   [
@@ -52,8 +55,10 @@ void main() {
           return Future.value(Response(housesResponseBody, 200));
         });
 
-        final adviceRemoteDatasourceUnderTest =
-            HouseRemoteDataSourceImpl(client: mockClient);
+        final mockLocalDataSource = MockHouseLocalDataSource();
+
+        final adviceRemoteDatasourceUnderTest = HouseRemoteDataSourceImpl(
+            client: mockClient, localDataSource: mockLocalDataSource);
 
         final result = await adviceRemoteDatasourceUnderTest.getHouses();
 

@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:wizarding_world/0_data/datasources/house/house_local_data_source.dart';
 import 'package:wizarding_world/0_data/models/house_model.dart';
 import 'package:wizarding_world/1_domain/failures/failures.dart';
 
@@ -10,8 +11,10 @@ abstract class HouseRemoteDataSource {
 
 class HouseRemoteDataSourceImpl implements HouseRemoteDataSource {
   final http.Client client;
+  final HouseLocalDataSource localDataSource;
 
-  HouseRemoteDataSourceImpl({required this.client});
+  HouseRemoteDataSourceImpl(
+      {required this.client, required this.localDataSource});
 
   @override
   Future<List<HouseModel>> getHouses() async {
@@ -24,6 +27,7 @@ class HouseRemoteDataSourceImpl implements HouseRemoteDataSource {
     }
 
     final responseBodyJson = jsonDecode(response.body);
+    await localDataSource.saveHouses(response.body);
     return responseBodyJson
         .map<HouseModel>((house) => HouseModel.fromJson(house))
         .toList();

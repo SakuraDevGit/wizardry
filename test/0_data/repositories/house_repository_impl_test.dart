@@ -1,11 +1,13 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:wizarding_world/0_data/datasources/house_remote_data_source.dart';
+import 'package:wizarding_world/0_data/datasources/house/house_local_data_source.dart';
+import 'package:wizarding_world/0_data/datasources/house/house_remote_data_source.dart';
 import 'package:wizarding_world/0_data/models/house_model.dart';
 import 'package:wizarding_world/0_data/repositories/house_repository_impl.dart';
 import 'package:wizarding_world/1_domain/failures/failures.dart';
 
+import '../datasources/houses_remote_datasource_test.mocks.dart';
 import 'house_repository_impl_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<HouseRemoteDataSourceImpl>()])
@@ -29,8 +31,12 @@ void main() {
         final mockRemoteDataSource = MockHouseRemoteDataSourceImpl();
         when(mockRemoteDataSource.getHouses())
             .thenAnswer((_) async => [houseModel]);
-        final houseRepository =
-            HouseRepositoryImpl(remoteDataSource: mockRemoteDataSource);
+
+        final mockLocalDataSource = MockHouseLocalDataSource();
+
+        final houseRepository = HouseRepositoryImpl(
+            remoteDataSource: mockRemoteDataSource,
+            localDataSource: mockLocalDataSource);
 
         // Act
         final result = await houseRepository.getHouses();
@@ -52,8 +58,10 @@ void main() {
         // Arrange
         final mockRemoteDataSource = MockHouseRemoteDataSourceImpl();
         when(mockRemoteDataSource.getHouses()).thenThrow(ServerFailure());
-        final houseRepository =
-            HouseRepositoryImpl(remoteDataSource: mockRemoteDataSource);
+        final mockLocalDataSource = MockHouseLocalDataSource();
+        final houseRepository = HouseRepositoryImpl(
+            remoteDataSource: mockRemoteDataSource,
+            localDataSource: mockLocalDataSource);
 
         // Act
         final result = await houseRepository.getHouses();
@@ -72,8 +80,10 @@ void main() {
         // Arrange
         final mockRemoteDataSource = MockHouseRemoteDataSourceImpl();
         when(mockRemoteDataSource.getHouses()).thenThrow(Exception());
-        final houseRepository =
-            HouseRepositoryImpl(remoteDataSource: mockRemoteDataSource);
+        final mockLocalDataSource = MockHouseLocalDataSource();
+        final houseRepository = HouseRepositoryImpl(
+            remoteDataSource: mockRemoteDataSource,
+            localDataSource: mockLocalDataSource);
 
         // Act
         final result = await houseRepository.getHouses();

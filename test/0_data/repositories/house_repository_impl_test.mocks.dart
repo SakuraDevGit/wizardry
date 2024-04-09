@@ -3,13 +3,15 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i4;
+import 'dart:async' as _i5;
 
 import 'package:http/http.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:wizarding_world/0_data/datasources/house_remote_data_source.dart'
+import 'package:wizarding_world/0_data/datasources/house/house_local_data_source.dart'
     as _i3;
-import 'package:wizarding_world/0_data/models/house_model.dart' as _i5;
+import 'package:wizarding_world/0_data/datasources/house/house_remote_data_source.dart'
+    as _i4;
+import 'package:wizarding_world/0_data/models/house_model.dart' as _i6;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -34,11 +36,22 @@ class _FakeClient_0 extends _i1.SmartFake implements _i2.Client {
         );
 }
 
+class _FakeHouseLocalDataSource_1 extends _i1.SmartFake
+    implements _i3.HouseLocalDataSource {
+  _FakeHouseLocalDataSource_1(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [HouseRemoteDataSourceImpl].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockHouseRemoteDataSourceImpl extends _i1.Mock
-    implements _i3.HouseRemoteDataSourceImpl {
+    implements _i4.HouseRemoteDataSourceImpl {
   @override
   _i2.Client get client => (super.noSuchMethod(
         Invocation.getter(#client),
@@ -53,13 +66,26 @@ class MockHouseRemoteDataSourceImpl extends _i1.Mock
       ) as _i2.Client);
 
   @override
-  _i4.Future<List<_i5.HouseModel>> getHouses() => (super.noSuchMethod(
+  _i3.HouseLocalDataSource get localDataSource => (super.noSuchMethod(
+        Invocation.getter(#localDataSource),
+        returnValue: _FakeHouseLocalDataSource_1(
+          this,
+          Invocation.getter(#localDataSource),
+        ),
+        returnValueForMissingStub: _FakeHouseLocalDataSource_1(
+          this,
+          Invocation.getter(#localDataSource),
+        ),
+      ) as _i3.HouseLocalDataSource);
+
+  @override
+  _i5.Future<List<_i6.HouseModel>> getHouses() => (super.noSuchMethod(
         Invocation.method(
           #getHouses,
           [],
         ),
-        returnValue: _i4.Future<List<_i5.HouseModel>>.value(<_i5.HouseModel>[]),
+        returnValue: _i5.Future<List<_i6.HouseModel>>.value(<_i6.HouseModel>[]),
         returnValueForMissingStub:
-            _i4.Future<List<_i5.HouseModel>>.value(<_i5.HouseModel>[]),
-      ) as _i4.Future<List<_i5.HouseModel>>);
+            _i5.Future<List<_i6.HouseModel>>.value(<_i6.HouseModel>[]),
+      ) as _i5.Future<List<_i6.HouseModel>>);
 }

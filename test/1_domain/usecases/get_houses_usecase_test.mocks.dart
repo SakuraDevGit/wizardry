@@ -3,17 +3,19 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i5;
+import 'dart:async' as _i6;
 
-import 'package:dartz/dartz.dart' as _i3;
+import 'package:dartz/dartz.dart' as _i4;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:wizarding_world/0_data/datasources/house_remote_data_source.dart'
+import 'package:wizarding_world/0_data/datasources/house/house_local_data_source.dart'
+    as _i3;
+import 'package:wizarding_world/0_data/datasources/house/house_remote_data_source.dart'
     as _i2;
 import 'package:wizarding_world/0_data/repositories/house_repository_impl.dart'
-    as _i4;
+    as _i5;
 import 'package:wizarding_world/1_domain/entities/house_entities/house_entity.dart'
-    as _i7;
-import 'package:wizarding_world/1_domain/failures/failures.dart' as _i6;
+    as _i8;
+import 'package:wizarding_world/1_domain/failures/failures.dart' as _i7;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -39,8 +41,19 @@ class _FakeHouseRemoteDataSource_0 extends _i1.SmartFake
         );
 }
 
-class _FakeEither_1<L, R> extends _i1.SmartFake implements _i3.Either<L, R> {
-  _FakeEither_1(
+class _FakeHouseLocalDataSource_1 extends _i1.SmartFake
+    implements _i3.HouseLocalDataSource {
+  _FakeHouseLocalDataSource_1(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeEither_2<L, R> extends _i1.SmartFake implements _i4.Either<L, R> {
+  _FakeEither_2(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -53,7 +66,7 @@ class _FakeEither_1<L, R> extends _i1.SmartFake implements _i3.Either<L, R> {
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockHouseRepositoryImpl extends _i1.Mock
-    implements _i4.HouseRepositoryImpl {
+    implements _i5.HouseRepositoryImpl {
   @override
   _i2.HouseRemoteDataSource get remoteDataSource => (super.noSuchMethod(
         Invocation.getter(#remoteDataSource),
@@ -68,15 +81,28 @@ class MockHouseRepositoryImpl extends _i1.Mock
       ) as _i2.HouseRemoteDataSource);
 
   @override
-  _i5.Future<_i3.Either<_i6.Failure, List<_i7.HouseEntity>>> getHouses() =>
+  _i3.HouseLocalDataSource get localDataSource => (super.noSuchMethod(
+        Invocation.getter(#localDataSource),
+        returnValue: _FakeHouseLocalDataSource_1(
+          this,
+          Invocation.getter(#localDataSource),
+        ),
+        returnValueForMissingStub: _FakeHouseLocalDataSource_1(
+          this,
+          Invocation.getter(#localDataSource),
+        ),
+      ) as _i3.HouseLocalDataSource);
+
+  @override
+  _i6.Future<_i4.Either<_i7.Failure, List<_i8.HouseEntity>>> getHouses() =>
       (super.noSuchMethod(
         Invocation.method(
           #getHouses,
           [],
         ),
         returnValue:
-            _i5.Future<_i3.Either<_i6.Failure, List<_i7.HouseEntity>>>.value(
-                _FakeEither_1<_i6.Failure, List<_i7.HouseEntity>>(
+            _i6.Future<_i4.Either<_i7.Failure, List<_i8.HouseEntity>>>.value(
+                _FakeEither_2<_i7.Failure, List<_i8.HouseEntity>>(
           this,
           Invocation.method(
             #getHouses,
@@ -84,13 +110,13 @@ class MockHouseRepositoryImpl extends _i1.Mock
           ),
         )),
         returnValueForMissingStub:
-            _i5.Future<_i3.Either<_i6.Failure, List<_i7.HouseEntity>>>.value(
-                _FakeEither_1<_i6.Failure, List<_i7.HouseEntity>>(
+            _i6.Future<_i4.Either<_i7.Failure, List<_i8.HouseEntity>>>.value(
+                _FakeEither_2<_i7.Failure, List<_i8.HouseEntity>>(
           this,
           Invocation.method(
             #getHouses,
             [],
           ),
         )),
-      ) as _i5.Future<_i3.Either<_i6.Failure, List<_i7.HouseEntity>>>);
+      ) as _i6.Future<_i4.Either<_i7.Failure, List<_i8.HouseEntity>>>);
 }
