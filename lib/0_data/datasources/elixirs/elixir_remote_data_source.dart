@@ -10,7 +10,7 @@ abstract class ElixirRemoteDataSource {
 
 class ElixirRemoteDataSourceImpl implements ElixirRemoteDataSource {
   final http.Client client;
-  final localDataSource;
+  final ElixirLocalDataSource localDataSource;
 
   ElixirRemoteDataSourceImpl(
       {required this.client, required this.localDataSource});

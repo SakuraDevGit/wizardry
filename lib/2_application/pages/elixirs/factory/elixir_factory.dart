@@ -8,7 +8,7 @@ import 'package:wizarding_world/2_application/pages/elixirs/cubit/elixirs_cubit.
 class ElixirFactory {
   static ElixirsCubit createCubit() {
     final client = http.Client();
-    final localDataSource = ElixirLocalDataSource();
+    final localDataSource = ElixirLocalDataSourceImpl();
     final remoteDataSource = ElixirRemoteDataSourceImpl(
         client: client, localDataSource: localDataSource);
     final houseRepository = ElixirRepositoryImpl(
