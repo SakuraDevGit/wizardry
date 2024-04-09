@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 class HouseFactory {
   static HousesCubit createCubit() {
     final client = http.Client();
-    final localDataSource = HouseLocalDataSource();
+    final localDataSource = HouseLocalDataSourceImpl();
     final remoteDataSource = HouseRemoteDataSourceImpl(
         client: client, localDataSource: localDataSource);
     final houseRepository = HouseRepositoryImpl(
