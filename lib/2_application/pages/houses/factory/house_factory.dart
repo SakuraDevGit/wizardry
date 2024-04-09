@@ -1,5 +1,5 @@
-import 'package:wizarding_world/0_data/datasources/house/house_local_data_source.dart';
-import 'package:wizarding_world/0_data/datasources/house/house_remote_data_source.dart';
+import 'package:wizarding_world/0_data/datasources/houses/house_local_data_source.dart';
+import 'package:wizarding_world/0_data/datasources/houses/house_remote_data_source.dart';
 import 'package:wizarding_world/0_data/repositories/house_repository_impl.dart';
 import 'package:wizarding_world/1_domain/usecases/get_houses_usecase.dart';
 import 'package:wizarding_world/2_application/pages/houses/cubit/houses_cubit.dart';

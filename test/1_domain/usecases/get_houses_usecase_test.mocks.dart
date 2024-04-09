@@ -7,9 +7,9 @@ import 'dart:async' as _i6;
 
 import 'package:dartz/dartz.dart' as _i4;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:wizarding_world/0_data/datasources/house/house_local_data_source.dart'
+import 'package:wizarding_world/0_data/datasources/houses/house_local_data_source.dart'
     as _i3;
-import 'package:wizarding_world/0_data/datasources/house/house_remote_data_source.dart'
+import 'package:wizarding_world/0_data/datasources/houses/house_remote_data_source.dart'
     as _i2;
 import 'package:wizarding_world/0_data/repositories/house_repository_impl.dart'
     as _i5;

@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:wizarding_world/0_data/datasources/spell_local_data_source.dart';
-import 'package:wizarding_world/0_data/datasources/spell_remote_data_source.dart';
+import 'package:wizarding_world/0_data/datasources/spells/spell_local_data_source.dart';
+import 'package:wizarding_world/0_data/datasources/spells/spell_remote_data_source.dart';
 import 'package:wizarding_world/1_domain/entities/spell_entities/spell_entity.dart';
 import 'package:wizarding_world/1_domain/failures/failures.dart';
 import 'package:wizarding_world/1_domain/repositories/spell_repository.dart';
