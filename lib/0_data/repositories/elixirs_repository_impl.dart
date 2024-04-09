@@ -6,8 +6,11 @@ import 'package:wizarding_world/1_domain/failures/failures.dart';
 import 'package:wizarding_world/1_domain/repositories/elixirs_repository.dart';
 
 class ElixirRepositoryImpl implements ElixirRepository {
-  final ElixirRemoteDataSource elixirDataSource = ElixirRemoteDataSourceImpl();
-  final ElixirLocalDataSource localDataSource = ElixirLocalDataSource();
+  final ElixirRemoteDataSource remoteDataSource;
+  final ElixirLocalDataSource localDataSource;
+
+  ElixirRepositoryImpl(
+      {required this.remoteDataSource, required this.localDataSource});
 
   @override
   Future<Either<Failure, List<ElixirEntity>>> getElixirs() async {
@@ -17,7 +20,7 @@ class ElixirRepositoryImpl implements ElixirRepository {
         return right(localElixirs);
       }
 
-      final elixirs = await elixirDataSource.getElixirs();
+      final elixirs = await remoteDataSource.getElixirs();
       return right(elixirs);
     } on ServerFailure catch (failure) {
       return left(failure);

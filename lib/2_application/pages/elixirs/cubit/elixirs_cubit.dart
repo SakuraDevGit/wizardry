@@ -4,11 +4,12 @@ import 'package:wizarding_world/1_domain/usecases/get_elixers_usecase.dart';
 import 'package:wizarding_world/2_application/pages/elixirs/cubit/elixirs_state.dart';
 
 class ElixirsCubit extends Cubit<ElixirsCubitState> {
-  final GetElixirsUseCase getElixirsUseCase = GetElixirsUseCase();
+  final GetElixirsUseCase getElixirsUseCase;
 
-  ElixirsCubit() : super(ElixirsStateInitial());
+  ElixirsCubit({required this.getElixirsUseCase})
+      : super(ElixirsStateInitial());
 
-  void housesRequested() async {
+  void elixirsRequested() async {
     if (state is ElixirsStateLoading) return;
     emit(ElixirsStateLoading());
 

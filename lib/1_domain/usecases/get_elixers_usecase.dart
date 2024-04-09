@@ -5,7 +5,9 @@ import 'package:wizarding_world/1_domain/failures/failures.dart';
 import 'package:wizarding_world/1_domain/repositories/elixirs_repository.dart';
 
 class GetElixirsUseCase {
-  final ElixirRepository elixirsRepository = ElixirRepositoryImpl();
+  final ElixirRepository elixirsRepository;
+
+  GetElixirsUseCase({required this.elixirsRepository});
 
   Future<Either<Failure, List<ElixirEntity>>> getElixirs(
       {bool sortOrderIsAscending = true}) async {

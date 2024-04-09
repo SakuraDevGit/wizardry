@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wizarding_world/2_application/pages/elixirs/cubit/elixirs_cubit.dart';
 import 'package:wizarding_world/2_application/pages/elixirs/cubit/elixirs_state.dart';
 import 'package:wizarding_world/2_application/pages/elixirs/elixirs_information_page.dart';
+import 'package:wizarding_world/2_application/pages/elixirs/factory/elixir_factory.dart';
 
 class ElixirsPage extends StatelessWidget {
   const ElixirsPage({super.key});
@@ -10,7 +11,7 @@ class ElixirsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<ElixirsCubit>(
-      create: (context) => ElixirsCubit()..housesRequested(),
+      create: (context) => ElixirFactory.createCubit()..elixirsRequested(),
       child: BlocBuilder<ElixirsCubit, ElixirsCubitState>(
         builder: (context, state) {
           if (state is ElixirsStateLoading) {

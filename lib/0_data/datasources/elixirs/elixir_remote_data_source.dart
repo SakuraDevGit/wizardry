@@ -9,8 +9,11 @@ abstract class ElixirRemoteDataSource {
 }
 
 class ElixirRemoteDataSourceImpl implements ElixirRemoteDataSource {
-  final http.Client client = http.Client();
-  final localDataSource = ElixirLocalDataSource();
+  final http.Client client;
+  final localDataSource;
+
+  ElixirRemoteDataSourceImpl(
+      {required this.client, required this.localDataSource});
 
   @override
   Future<List<ElixirModel>> getElixirs() async {
