@@ -27,13 +27,13 @@ class AppTheme {
   // *****************
   static const TextStyle _lightHeadingText = TextStyle(
       color: _lightTextColorPrimary,
-      fontFamily: "Rubik",
+      fontFamily: 'Rubik',
       fontSize: 20,
       fontWeight: FontWeight.bold);
 
   static const TextStyle _lightBodyText = TextStyle(
       color: _lightTextColorPrimary,
-      fontFamily: "Rubik",
+      fontFamily: 'Rubik',
       fontStyle: FontStyle.italic,
       fontWeight: FontWeight.bold,
       fontSize: 16);

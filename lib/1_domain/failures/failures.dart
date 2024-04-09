@@ -4,11 +4,11 @@ extension FailureMessageExtension on Failure {
   String message() {
     switch (runtimeType) {
       case const (ServerFailure):
-        return "Oops, API Error. Please try again.";
+        return 'Oops, API Error. Please try again.';
       case const (ChacheFailure):
-        return "Oops, Cache Error. Please try again.";
+        return 'Oops, Cache Error. Please try again.';
       default:
-        return "Oops, something went wrong.";
+        return 'Oops, something went wrong.';
     }
   }
 }

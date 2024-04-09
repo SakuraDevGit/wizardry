@@ -67,7 +67,7 @@ void main() {
             HouseModel(
                 id: '0367baf3-1cb6-4baf-bede-48e17e1cd005',
                 name: 'Gryffindor',
-                houseColours: "Scarlet and gold",
+                houseColours: 'Scarlet and gold',
                 founder: 'Godric Gryffindor',
                 animal: 'Lion',
                 element: 'Fire',
