@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:wizarding_world/0_data/datasources/elixirs/elixir_local_data_source.dart';
 import 'package:wizarding_world/0_data/models/elixir_model.dart';
 import 'package:wizarding_world/1_domain/failures/failures.dart';
 
@@ -9,6 +10,7 @@ abstract class ElixirRemoteDataSource {
 
 class ElixirRemoteDataSourceImpl implements ElixirRemoteDataSource {
   final http.Client client = http.Client();
+  final localDataSource = ElixirLocalDataSource();
 
   @override
   Future<List<ElixirModel>> getElixirs() async {
@@ -21,6 +23,7 @@ class ElixirRemoteDataSourceImpl implements ElixirRemoteDataSource {
     }
 
     final responseBodyJson = jsonDecode(response.body);
+    await localDataSource.saveElixirs(response.body);
     return responseBodyJson
         .map<ElixirModel>((elixir) => ElixirModel.fromJson(elixir))
         .toList();
