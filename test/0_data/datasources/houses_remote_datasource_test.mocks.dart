@@ -8,8 +8,7 @@ import 'dart:async' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:wizarding_world/0_data/datasources/houses/house_local_data_source.dart'
     as _i2;
-import 'package:wizarding_world/1_domain/entities/house_entities/house_entity.dart'
-    as _i4;
+import 'package:wizarding_world/0_data/models/house_model.dart' as _i4;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -40,14 +39,13 @@ class MockHouseLocalDataSource extends _i1.Mock
       ) as _i3.Future<void>);
 
   @override
-  _i3.Future<List<_i4.HouseEntity>> getHouses() => (super.noSuchMethod(
+  _i3.Future<List<_i4.HouseModel>> getHouses() => (super.noSuchMethod(
         Invocation.method(
           #getHouses,
           [],
         ),
-        returnValue:
-            _i3.Future<List<_i4.HouseEntity>>.value(<_i4.HouseEntity>[]),
+        returnValue: _i3.Future<List<_i4.HouseModel>>.value(<_i4.HouseModel>[]),
         returnValueForMissingStub:
-            _i3.Future<List<_i4.HouseEntity>>.value(<_i4.HouseEntity>[]),
-      ) as _i3.Future<List<_i4.HouseEntity>>);
+            _i3.Future<List<_i4.HouseModel>>.value(<_i4.HouseModel>[]),
+      ) as _i3.Future<List<_i4.HouseModel>>);
 }

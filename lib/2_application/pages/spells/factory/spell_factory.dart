@@ -8,7 +8,7 @@ import 'package:wizarding_world/2_application/pages/spells/cubit/spells_cubit.da
 class SpellFactory {
   static SpellsCubit createCubit() {
     final client = http.Client();
-    final localDataSource = SpellLocalDataSource();
+    final localDataSource = SpellLocalDataSourceImpl();
     final remoteDataSource = SpellRemoteDataSourceImpl(
         client: client, localDataSource: localDataSource);
     final spellRepository = SpellRepositoryImpl(
