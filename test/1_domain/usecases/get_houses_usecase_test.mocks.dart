@@ -94,29 +94,32 @@ class MockHouseRepositoryImpl extends _i1.Mock
       ) as _i3.HouseLocalDataSource);
 
   @override
-  _i6.Future<_i4.Either<_i7.Failure, List<_i8.HouseEntity>>> getHouses() =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #getHouses,
-          [],
-        ),
-        returnValue:
-            _i6.Future<_i4.Either<_i7.Failure, List<_i8.HouseEntity>>>.value(
-                _FakeEither_2<_i7.Failure, List<_i8.HouseEntity>>(
-          this,
-          Invocation.method(
-            #getHouses,
-            [],
-          ),
-        )),
-        returnValueForMissingStub:
-            _i6.Future<_i4.Either<_i7.Failure, List<_i8.HouseEntity>>>.value(
-                _FakeEither_2<_i7.Failure, List<_i8.HouseEntity>>(
-          this,
-          Invocation.method(
-            #getHouses,
-            [],
-          ),
-        )),
-      ) as _i6.Future<_i4.Either<_i7.Failure, List<_i8.HouseEntity>>>);
+  _i6.Future<_i4.Either<_i7.WizardingFailure, List<_i8.HouseEntity>>>
+      getHouses() => (super.noSuchMethod(
+            Invocation.method(
+              #getHouses,
+              [],
+            ),
+            returnValue: _i6.Future<
+                    _i4
+                    .Either<_i7.WizardingFailure, List<_i8.HouseEntity>>>.value(
+                _FakeEither_2<_i7.WizardingFailure, List<_i8.HouseEntity>>(
+              this,
+              Invocation.method(
+                #getHouses,
+                [],
+              ),
+            )),
+            returnValueForMissingStub: _i6.Future<
+                    _i4
+                    .Either<_i7.WizardingFailure, List<_i8.HouseEntity>>>.value(
+                _FakeEither_2<_i7.WizardingFailure, List<_i8.HouseEntity>>(
+              this,
+              Invocation.method(
+                #getHouses,
+                [],
+              ),
+            )),
+          ) as _i6
+              .Future<_i4.Either<_i7.WizardingFailure, List<_i8.HouseEntity>>>);
 }

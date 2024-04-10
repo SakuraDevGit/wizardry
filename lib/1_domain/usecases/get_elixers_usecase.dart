@@ -8,7 +8,7 @@ class GetElixirsUseCase {
 
   GetElixirsUseCase({required this.elixirsRepository});
 
-  Future<Either<Failure, List<ElixirEntity>>> getElixirs(
+  Future<Either<WizardingFailure, List<ElixirEntity>>> getElixirs(
       {bool sortOrderIsAscending = true}) async {
     final elixirsOrFailure = await elixirsRepository.getElixirs();
     elixirsOrFailure.fold(

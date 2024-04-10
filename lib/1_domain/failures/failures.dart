@@ -1,6 +1,6 @@
-abstract class Failure implements Exception {}
+abstract class WizardingFailure implements Exception {}
 
-extension FailureMessageExtension on Failure {
+extension FailureMessageExtension on WizardingFailure {
   String message() {
     switch (runtimeType) {
       case const (ServerFailure):
@@ -13,8 +13,8 @@ extension FailureMessageExtension on Failure {
   }
 }
 
-class ServerFailure extends Failure {}
+class ServerFailure extends WizardingFailure {}
 
-class ChacheFailure extends Failure {}
+class ChacheFailure extends WizardingFailure {}
 
-class GeneralFailure extends Failure {}
+class GeneralFailure extends WizardingFailure {}

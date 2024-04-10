@@ -8,14 +8,14 @@ class GetSpellsUseCase {
 
   GetSpellsUseCase({required this.spellRepository});
 
-  Future<Either<Failure, List<SpellEntity>>> getSpells(
+  Future<Either<WizardingFailure, List<SpellEntity>>> getSpells(
       {bool sortOrderIsAscending = true}) async {
     final spellsOrFailure = await spellRepository.getSpells();
     spellsOrFailure.sortByName(isAscending: sortOrderIsAscending);
     return spellsOrFailure;
   }
 
-  Future<Either<Failure, List<SpellEntity>>> getSpellsWith(
+  Future<Either<WizardingFailure, List<SpellEntity>>> getSpellsWith(
       String name, String type, String incantation,
       {bool sortOrderIsAscending = true}) async {
     final spellsOrFailure =
@@ -25,7 +25,7 @@ class GetSpellsUseCase {
   }
 }
 
-extension SortingExtension on Either<Failure, List<SpellEntity>> {
+extension SortingExtension on Either<WizardingFailure, List<SpellEntity>> {
   void sortByName({bool isAscending = true}) {
     fold(
         (failure) => left(failure),

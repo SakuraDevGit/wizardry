@@ -13,7 +13,7 @@ class HouseRepositoryImpl implements HouseRepository {
       {required this.remoteDataSource, required this.localDataSource});
 
   @override
-  Future<Either<Failure, List<HouseEntity>>> getHouses() async {
+  Future<Either<WizardingFailure, List<HouseEntity>>> getHouses() async {
     try {
       final localHouses = await localDataSource.getHouses();
       if (localHouses.isNotEmpty) {

@@ -8,7 +8,7 @@ class GetHousesUseCase {
 
   GetHousesUseCase({required this.houseRepository});
 
-  Future<Either<Failure, List<HouseEntity>>> getHouses(
+  Future<Either<WizardingFailure, List<HouseEntity>>> getHouses(
       {bool sortOrderIsAscending = true}) async {
     final housesOrFailure = await houseRepository.getHouses();
     housesOrFailure.fold(

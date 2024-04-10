@@ -13,7 +13,7 @@ class ElixirRepositoryImpl implements ElixirRepository {
       {required this.remoteDataSource, required this.localDataSource});
 
   @override
-  Future<Either<Failure, List<ElixirEntity>>> getElixirs() async {
+  Future<Either<WizardingFailure, List<ElixirEntity>>> getElixirs() async {
     try {
       final localElixirs = await localDataSource.getElixirs();
       if (localElixirs.isNotEmpty) {

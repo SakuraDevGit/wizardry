@@ -15,7 +15,7 @@ class SpellRepositoryImpl implements SpellRepository {
   });
 
   @override
-  Future<Either<Failure, List<SpellEntity>>> getSpells() async {
+  Future<Either<WizardingFailure, List<SpellEntity>>> getSpells() async {
     try {
       final localSpells = await localDataSource.getSpells();
       if (localSpells.isNotEmpty) {
@@ -32,7 +32,7 @@ class SpellRepositoryImpl implements SpellRepository {
   }
 
   @override
-  Future<Either<Failure, List<SpellEntity>>> getSpellsWith(
+  Future<Either<WizardingFailure, List<SpellEntity>>> getSpellsWith(
       String name, String type, String incantation) async {
     try {
       final spells =

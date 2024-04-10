@@ -67,7 +67,7 @@ class MockGetHousesUseCase extends _i1.Mock implements _i4.GetHousesUseCase {
       ) as _i2.HouseRepository);
 
   @override
-  _i5.Future<_i3.Either<_i6.Failure, List<_i7.HouseEntity>>> getHouses(
+  _i5.Future<_i3.Either<_i6.WizardingFailure, List<_i7.HouseEntity>>> getHouses(
           {bool? sortOrderIsAscending = true}) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -75,9 +75,9 @@ class MockGetHousesUseCase extends _i1.Mock implements _i4.GetHousesUseCase {
           [],
           {#sortOrderIsAscending: sortOrderIsAscending},
         ),
-        returnValue:
-            _i5.Future<_i3.Either<_i6.Failure, List<_i7.HouseEntity>>>.value(
-                _FakeEither_1<_i6.Failure, List<_i7.HouseEntity>>(
+        returnValue: _i5.Future<
+                _i3.Either<_i6.WizardingFailure, List<_i7.HouseEntity>>>.value(
+            _FakeEither_1<_i6.WizardingFailure, List<_i7.HouseEntity>>(
           this,
           Invocation.method(
             #getHouses,
@@ -85,9 +85,9 @@ class MockGetHousesUseCase extends _i1.Mock implements _i4.GetHousesUseCase {
             {#sortOrderIsAscending: sortOrderIsAscending},
           ),
         )),
-        returnValueForMissingStub:
-            _i5.Future<_i3.Either<_i6.Failure, List<_i7.HouseEntity>>>.value(
-                _FakeEither_1<_i6.Failure, List<_i7.HouseEntity>>(
+        returnValueForMissingStub: _i5.Future<
+                _i3.Either<_i6.WizardingFailure, List<_i7.HouseEntity>>>.value(
+            _FakeEither_1<_i6.WizardingFailure, List<_i7.HouseEntity>>(
           this,
           Invocation.method(
             #getHouses,
@@ -95,5 +95,5 @@ class MockGetHousesUseCase extends _i1.Mock implements _i4.GetHousesUseCase {
             {#sortOrderIsAscending: sortOrderIsAscending},
           ),
         )),
-      ) as _i5.Future<_i3.Either<_i6.Failure, List<_i7.HouseEntity>>>);
+      ) as _i5.Future<_i3.Either<_i6.WizardingFailure, List<_i7.HouseEntity>>>);
 }
