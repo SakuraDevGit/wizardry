@@ -1,6 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:wizard_domain_shared/result.dart';
+import 'package:domain/result.dart';
 
 void main() {
   test('a success type gives back its value accurately', () {

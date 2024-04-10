@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:wizarding_world/1_domain/entities/house_entities/house_entity.dart';
+import 'package:domain/entities/house_entities/house_entity.dart';
 
 sealed class HousesCubitState extends Equatable {
   const HousesCubitState();

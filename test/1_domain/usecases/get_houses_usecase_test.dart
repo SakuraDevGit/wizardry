@@ -3,9 +3,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:wizarding_world/0_data/repositories/house_repository_impl.dart';
-import 'package:wizarding_world/1_domain/entities/house_entities/house_entity.dart';
-import 'package:wizarding_world/1_domain/failures/failures.dart';
-import 'package:wizarding_world/1_domain/usecases/get_houses_usecase.dart';
+import 'package:domain/entities/house_entities/house_entity.dart';
+import 'package:domain/failures/failures.dart';
+import 'package:domain/usecases/get_houses_usecase.dart';
 import 'get_houses_usecase_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<HouseRepositoryImpl>()])

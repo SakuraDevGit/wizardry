@@ -4,7 +4,7 @@ import 'package:mockito/mockito.dart';
 import 'package:wizarding_world/0_data/datasources/houses/house_remote_data_source.dart';
 import 'package:wizarding_world/0_data/models/house_model.dart';
 import 'package:wizarding_world/0_data/repositories/house_repository_impl.dart';
-import 'package:wizarding_world/1_domain/failures/failures.dart';
+import 'package:domain/failures/failures.dart';
 
 import '../datasources/houses_remote_datasource_test.mocks.dart';
 import 'house_repository_impl_test.mocks.dart';

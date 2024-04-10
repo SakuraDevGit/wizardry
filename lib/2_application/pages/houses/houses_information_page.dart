@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wizarding_world/1_domain/entities/house_entities/house_entity.dart';
+import 'package:domain/entities/house_entities/house_entity.dart';
 
 class HouseInformationPage extends StatelessWidget {
   final HouseEntity house;

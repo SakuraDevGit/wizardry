@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wizarding_world/1_domain/entities/spell_entities/spell_entity.dart';
+import 'package:domain/entities/spell_entities/spell_entity.dart';
 
 class SpellsInformationPage extends StatelessWidget {
   final SpellEntity spell;

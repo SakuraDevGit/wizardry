@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:wizarding_world/0_data/datasources/elixirs/elixir_local_data_source.dart';
 import 'package:wizarding_world/0_data/models/elixir_model.dart';
-import 'package:wizarding_world/1_domain/failures/failures.dart';
+import 'package:domain/failures/failures.dart';
 
 abstract class ElixirRemoteDataSource {
   Future<List<ElixirModel>> getElixirs();

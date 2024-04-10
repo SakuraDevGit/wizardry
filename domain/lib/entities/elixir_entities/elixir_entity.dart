@@ -1,5 +1,5 @@
-import 'package:wizarding_world/1_domain/entities/elixir_entities/ingredient_entity.dart';
-import 'package:wizarding_world/1_domain/entities/elixir_entities/inventor_entity.dart';
+import 'package:domain/entities/elixir_entities/ingredient_entity.dart';
+import 'package:domain/entities/elixir_entities/inventor_entity.dart';
 
 class ElixirEntity {
   final String id;

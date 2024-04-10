@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:wizarding_world/1_domain/entities/spell_entities/spell_entity.dart';
-import 'package:wizarding_world/1_domain/failures/failures.dart';
+import 'package:domain/entities/spell_entities/spell_entity.dart';
+import 'package:domain/failures/failures.dart';
 
 abstract class SpellRepository {
   Future<Either<WizardingFailure, List<SpellEntity>>> getSpells();

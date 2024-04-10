@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:wizarding_world/1_domain/entities/spell_entities/spell_entity.dart';
+import 'package:domain/entities/spell_entities/spell_entity.dart';
 
 sealed class SpellsCubitState extends Equatable {
   const SpellsCubitState();

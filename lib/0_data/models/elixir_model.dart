@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
-import 'package:wizarding_world/1_domain/entities/elixir_entities/elixir_entity.dart';
-import 'package:wizarding_world/1_domain/entities/elixir_entities/ingredient_entity.dart';
-import 'package:wizarding_world/1_domain/entities/elixir_entities/inventor_entity.dart';
+import 'package:domain/entities/elixir_entities/elixir_entity.dart';
+import 'package:domain/entities/elixir_entities/ingredient_entity.dart';
+import 'package:domain/entities/elixir_entities/inventor_entity.dart';
 
 class ElixirModel extends ElixirEntity with EquatableMixin {
   ElixirModel({

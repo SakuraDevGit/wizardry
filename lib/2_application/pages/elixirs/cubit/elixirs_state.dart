@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:wizarding_world/1_domain/entities/elixir_entities/elixir_entity.dart';
+import 'package:domain/entities/elixir_entities/elixir_entity.dart';
 
 sealed class ElixirsCubitState extends Equatable {
   const ElixirsCubitState();

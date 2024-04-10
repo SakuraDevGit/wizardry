@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:wizarding_world/0_data/datasources/elixirs/elixir_local_data_source.dart';
 import 'package:wizarding_world/0_data/datasources/elixirs/elixir_remote_data_source.dart';
-import 'package:wizarding_world/1_domain/entities/elixir_entities/elixir_entity.dart';
-import 'package:wizarding_world/1_domain/failures/failures.dart';
-import 'package:wizarding_world/1_domain/repositories/elixirs_repository.dart';
+import 'package:domain/entities/elixir_entities/elixir_entity.dart';
+import 'package:domain/failures/failures.dart';
+import 'package:domain/repositories/elixirs_repository.dart';
 
 class ElixirRepositoryImpl implements ElixirRepository {
   final ElixirRemoteDataSource remoteDataSource;

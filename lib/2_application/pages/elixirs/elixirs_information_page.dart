@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wizarding_world/1_domain/entities/elixir_entities/elixir_entity.dart';
+import 'package:domain/entities/elixir_entities/elixir_entity.dart';
 
 class ElixirInformationPage extends StatelessWidget {
   final ElixirEntity elixir;

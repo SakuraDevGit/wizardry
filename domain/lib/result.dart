@@ -1,4 +1,4 @@
-library wizard_domain_shared;
+library domain;
 
 /// Base Result class
 /// [S] represents the type of the success value

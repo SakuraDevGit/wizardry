@@ -1,5 +1,5 @@
-name: wizard_domain_shared
-description: "A new Flutter package project."
+name: domain
+description: "The domain layer for the wizarding app"
 version: 0.0.1
 homepage:
 
@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  dartz: ^0.10.1
 
 dev_dependencies:
   flutter_test:

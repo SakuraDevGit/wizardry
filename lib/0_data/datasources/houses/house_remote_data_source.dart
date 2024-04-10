@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:wizarding_world/0_data/datasources/houses/house_local_data_source.dart';
 import 'package:wizarding_world/0_data/models/house_model.dart';
-import 'package:wizarding_world/1_domain/failures/failures.dart';
+import 'package:domain/failures/failures.dart';
 
 abstract class HouseRemoteDataSource {
   Future<List<HouseModel>> getHouses();

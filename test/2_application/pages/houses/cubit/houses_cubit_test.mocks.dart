@@ -7,13 +7,10 @@ import 'dart:async' as _i5;
 
 import 'package:dartz/dartz.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:wizarding_world/1_domain/entities/house_entities/house_entity.dart'
-    as _i7;
-import 'package:wizarding_world/1_domain/failures/failures.dart' as _i6;
-import 'package:wizarding_world/1_domain/repositories/house_repository.dart'
-    as _i2;
-import 'package:wizarding_world/1_domain/usecases/get_houses_usecase.dart'
-    as _i4;
+import 'package:domain/entities/house_entities/house_entity.dart' as _i7;
+import 'package:domain/failures/failures.dart' as _i6;
+import 'package:domain/repositories/house_repository.dart' as _i2;
+import 'package:domain/usecases/get_houses_usecase.dart' as _i4;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values

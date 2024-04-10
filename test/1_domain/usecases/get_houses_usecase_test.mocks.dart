@@ -13,9 +13,8 @@ import 'package:wizarding_world/0_data/datasources/houses/house_remote_data_sour
     as _i2;
 import 'package:wizarding_world/0_data/repositories/house_repository_impl.dart'
     as _i5;
-import 'package:wizarding_world/1_domain/entities/house_entities/house_entity.dart'
-    as _i8;
-import 'package:wizarding_world/1_domain/failures/failures.dart' as _i7;
+import 'package:domain/entities/house_entities/house_entity.dart' as _i8;
+import 'package:domain/failures/failures.dart' as _i7;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
