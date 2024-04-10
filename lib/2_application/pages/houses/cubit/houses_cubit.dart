@@ -1,3 +1,4 @@
+import 'package:domain/result.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:domain/failures/failures.dart';
 import 'package:domain/usecases/get_houses_usecase.dart';
@@ -14,8 +15,12 @@ class HousesCubit extends Cubit<HousesCubitState> {
 
     final housesOrFailure = await getHousesUseCase.getHouses();
     if (isClosed) return;
-    housesOrFailure.fold(
-        (failure) => emit(HousesStateError(message: failure.message())),
-        (houses) => emit(HousesStateLoaded(houses: houses)));
+    switch (housesOrFailure) {
+      case Success(value: final houses):
+        emit(HousesStateLoaded(houses: houses));
+      case Failure(exception: final failure):
+        emit(HousesStateError(message: failure.message()));
+      default:
+    }
   }
 }

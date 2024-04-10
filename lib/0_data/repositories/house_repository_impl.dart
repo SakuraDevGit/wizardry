@@ -1,4 +1,4 @@
-import 'package:dartz/dartz.dart';
+import 'package:domain/result.dart';
 import 'package:wizarding_world/0_data/datasources/houses/house_local_data_source.dart';
 import 'package:wizarding_world/0_data/datasources/houses/house_remote_data_source.dart';
 import 'package:domain/entities/house_entities/house_entity.dart';
@@ -13,19 +13,19 @@ class HouseRepositoryImpl implements HouseRepository {
       {required this.remoteDataSource, required this.localDataSource});
 
   @override
-  Future<Either<WizardingFailure, List<HouseEntity>>> getHouses() async {
+  Future<Result<List<HouseEntity>, WizardingFailure>> getHouses() async {
     try {
       final localHouses = await localDataSource.getHouses();
       if (localHouses.isNotEmpty) {
-        return right(localHouses);
+        return Success(localHouses);
       }
 
       final houses = await remoteDataSource.getHouses();
-      return right(houses);
+      return Success(houses);
     } on ServerFailure catch (failure) {
-      return left(failure);
+      return Failure(failure);
     } catch (failure) {
-      return left(GeneralFailure());
+      return Failure(GeneralFailure());
     }
   }
 }

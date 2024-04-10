@@ -1,4 +1,5 @@
-import 'package:dartz/dartz.dart';
+import 'package:domain/result.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -29,7 +30,7 @@ void main() {
       );
       final mockHouseUseCase = MockGetHousesUseCase();
       when(mockHouseUseCase.getHouses())
-          .thenAnswer((_) async => Right([houseEntity]));
+          .thenAnswer((_) async => Success([houseEntity]));
 
       blocTest<HousesCubit, HousesCubitState>(
         'emits nothing when no event is added.',
@@ -51,7 +52,7 @@ void main() {
       // Arrange
       final mockHouseUseCase = MockGetHousesUseCase();
       when(mockHouseUseCase.getHouses())
-          .thenAnswer((_) async => Left(ServerFailure()));
+          .thenAnswer((_) async => Failure(ServerFailure()));
 
       blocTest(
           'loading state and HousesStateError when adviceRequested is called',

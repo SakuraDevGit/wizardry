@@ -1,4 +1,4 @@
-import 'package:dartz/dartz.dart';
+import 'package:domain/result.dart';
 import 'package:wizarding_world/0_data/datasources/spells/spell_local_data_source.dart';
 import 'package:wizarding_world/0_data/datasources/spells/spell_remote_data_source.dart';
 import 'package:domain/entities/spell_entities/spell_entity.dart';
@@ -15,33 +15,33 @@ class SpellRepositoryImpl implements SpellRepository {
   });
 
   @override
-  Future<Either<WizardingFailure, List<SpellEntity>>> getSpells() async {
+  Future<Result<List<SpellEntity>, WizardingFailure>> getSpells() async {
     try {
       final localSpells = await localDataSource.getSpells();
       if (localSpells.isNotEmpty) {
-        return right(localSpells);
+        return Success(localSpells);
       }
 
       final spells = await remoteDataSource.getSpells();
-      return right(spells);
+      return Success(spells);
     } on ServerFailure catch (failure) {
-      return left(failure);
+      return Failure(failure);
     } catch (failure) {
-      return left(GeneralFailure());
+      return Failure(GeneralFailure());
     }
   }
 
   @override
-  Future<Either<WizardingFailure, List<SpellEntity>>> getSpellsWith(
+  Future<Result<List<SpellEntity>, WizardingFailure>> getSpellsWith(
       String name, String type, String incantation) async {
     try {
       final spells =
           await remoteDataSource.getSpellsWith(name, type, incantation);
-      return right(spells);
+      return Success(spells);
     } on ServerFailure catch (failure) {
-      return left(failure);
+      return Failure(failure);
     } catch (failure) {
-      return left(GeneralFailure());
+      return Failure(GeneralFailure());
     }
   }
 }

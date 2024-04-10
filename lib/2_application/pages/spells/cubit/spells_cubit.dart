@@ -1,3 +1,4 @@
+import 'package:domain/result.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:domain/failures/failures.dart';
 import 'package:domain/usecases/get_spells_usecase.dart';
@@ -14,9 +15,12 @@ class SpellsCubit extends Cubit<SpellsCubitState> {
 
     final spellsOrFailure = await getSpellsUseCase.getSpells();
     if (isClosed) return;
-    spellsOrFailure.fold(
-        (failure) => emit(SpellsStateError(message: failure.message())),
-        (spells) => emit(SpellsStateLoaded(spells: spells)));
+    switch (spellsOrFailure) {
+      case Success(value: final spells):
+        emit(SpellsStateLoaded(spells: spells));
+      case Failure(exception: final failure):
+        emit(SpellsStateError(message: failure.message()));
+    }
   }
 
   void spellRequested(String name, String type, String incantation) async {
@@ -29,9 +33,12 @@ class SpellsCubit extends Cubit<SpellsCubitState> {
       final spellsOrFailure =
           await getSpellsUseCase.getSpellsWith(name, type, incantation);
       if (isClosed) return;
-      spellsOrFailure.fold(
-          (failure) => emit(SpellsStateError(message: failure.message())),
-          (spells) => emit(SpellsStateLoaded(spells: spells)));
+      switch (spellsOrFailure) {
+        case Success(value: final spells):
+          emit(SpellsStateLoaded(spells: spells));
+        case Failure(exception: final failure):
+          emit(SpellsStateError(message: failure.message()));
+      }
     }
   }
 }

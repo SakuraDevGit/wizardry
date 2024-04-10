@@ -1,43 +1,42 @@
-import 'package:dartz/dartz.dart';
 import 'package:domain/entities/spell_entities/spell_entity.dart';
 import 'package:domain/failures/failures.dart';
 import 'package:domain/repositories/spell_repository.dart';
+import 'package:domain/result.dart';
 
 class GetSpellsUseCase {
   final SpellRepository spellRepository;
 
   GetSpellsUseCase({required this.spellRepository});
 
-  Future<Either<WizardingFailure, List<SpellEntity>>> getSpells(
+  Future<Result<List<SpellEntity>, WizardingFailure>> getSpells(
       {bool sortOrderIsAscending = true}) async {
     final spellsOrFailure = await spellRepository.getSpells();
-    spellsOrFailure.sortByName(isAscending: sortOrderIsAscending);
-    return spellsOrFailure;
+    return spellsOrFailure.sortByName(isAscending: sortOrderIsAscending);
   }
 
-  Future<Either<WizardingFailure, List<SpellEntity>>> getSpellsWith(
+  Future<Result<List<SpellEntity>, WizardingFailure>> getSpellsWith(
       String name, String type, String incantation,
       {bool sortOrderIsAscending = true}) async {
     final spellsOrFailure =
         await spellRepository.getSpellsWith(name, type, incantation);
-    spellsOrFailure.sortByName(isAscending: sortOrderIsAscending);
-    return spellsOrFailure;
+    return spellsOrFailure.sortByName(isAscending: sortOrderIsAscending);
   }
 }
 
-extension SortingExtension on Either<WizardingFailure, List<SpellEntity>> {
-  void sortByName({bool isAscending = true}) {
-    fold(
-        (failure) => left(failure),
-        (spells) => {
-              spells.sort((a, b) {
-                if (isAscending) {
-                  return a.name.compareTo(b.name);
-                } else {
-                  return b.name.compareTo(a.name);
-                }
-              }),
-              right(spells)
-            });
+extension SortingExtension on Result<List<SpellEntity>, WizardingFailure> {
+  Result<List<SpellEntity>, WizardingFailure> sortByName(
+      {bool isAscending = true}) {
+    if (this case Success(value: final spells)) {
+      spells.sort((a, b) {
+        if (isAscending) {
+          return a.name.compareTo(b.name);
+        } else {
+          return b.name.compareTo(a.name);
+        }
+      });
+      return Success(spells);
+    } else {
+      return this;
+    }
   }
 }

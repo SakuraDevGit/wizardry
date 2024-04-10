@@ -1,3 +1,4 @@
+import 'package:domain/result.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:domain/failures/failures.dart';
 import 'package:domain/usecases/get_elixers_usecase.dart';
@@ -13,10 +14,13 @@ class ElixirsCubit extends Cubit<ElixirsCubitState> {
     if (state is ElixirsStateLoading) return;
     emit(ElixirsStateLoading());
 
-    final housesOrFailure = await getElixirsUseCase.getElixirs();
+    final elixirsOrFailure = await getElixirsUseCase.getElixirs();
     if (isClosed) return;
-    housesOrFailure.fold(
-        (failure) => emit(ElixirsStateError(message: failure.message())),
-        (elixirs) => emit(ElixirsStateLoaded(elixirs: elixirs)));
+    switch (elixirsOrFailure) {
+      case Success(value: final elixirs):
+        emit(ElixirsStateLoaded(elixirs: elixirs));
+      case Failure(exception: final failure):
+        emit(ElixirsStateError(message: failure.message()));
+    }
   }
 }

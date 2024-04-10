@@ -1,3 +1,4 @@
+import 'package:domain/result.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -41,12 +42,12 @@ void main() {
         final result = await houseRepository.getHouses();
 
         // Assert
-        expect(result.isLeft(), false);
-        expect(result.isRight(), true);
-        result.fold((failure) => fail('should not have a value'),
-            (houseResult) {
-          expect(houseResult.first, houseModel);
-        });
+        switch (result) {
+          case Success(value: final houses):
+            expect(houses.first, houseModel);
+          case Failure(exception: final _):
+            fail('should not have a value');
+        }
         verify(mockRemoteDataSource.getHouses()).called(1);
         verifyNoMoreInteractions(mockRemoteDataSource);
       });
@@ -66,11 +67,12 @@ void main() {
         final result = await houseRepository.getHouses();
 
         // Assert
-        expect(result.isLeft(), true);
-        expect(result.isRight(), false);
-        result.fold((failure) {
-          expect(failure, isA<ServerFailure>());
-        }, (houseResult) => fail('should not have a value'));
+        switch (result) {
+          case Success(value: final _):
+            fail('should not have a value');
+          case Failure(exception: final failure):
+            expect(failure, isA<ServerFailure>());
+        }
         verify(mockRemoteDataSource.getHouses()).called(1);
         verifyNoMoreInteractions(mockRemoteDataSource);
       });
@@ -88,11 +90,12 @@ void main() {
         final result = await houseRepository.getHouses();
 
         // Assert
-        expect(result.isLeft(), true);
-        expect(result.isRight(), false);
-        result.fold((failure) {
-          expect(failure, isA<GeneralFailure>());
-        }, (houseResult) => fail('should not have a value'));
+        switch (result) {
+          case Success(value: final _):
+            fail('should not have a value');
+          case Failure(exception: final failure):
+            expect(failure, isA<GeneralFailure>());
+        }
         verify(mockRemoteDataSource.getHouses()).called(1);
         verifyNoMoreInteractions(mockRemoteDataSource);
       });

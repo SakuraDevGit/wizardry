@@ -1,7 +1,7 @@
-import 'package:dartz/dartz.dart';
 import 'package:domain/entities/elixir_entities/elixir_entity.dart';
 import 'package:domain/failures/failures.dart';
+import 'package:domain/result.dart';
 
 abstract class ElixirRepository {
-  Future<Either<WizardingFailure, List<ElixirEntity>>> getElixirs();
+  Future<Result<List<ElixirEntity>, WizardingFailure>> getElixirs();
 }

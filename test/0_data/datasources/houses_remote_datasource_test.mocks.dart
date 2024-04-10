@@ -29,16 +29,6 @@ import 'package:wizarding_world/0_data/models/house_model.dart' as _i4;
 class MockHouseLocalDataSource extends _i1.Mock
     implements _i2.HouseLocalDataSource {
   @override
-  _i3.Future<void> saveHouses(String? housesJsonString) => (super.noSuchMethod(
-        Invocation.method(
-          #saveHouses,
-          [housesJsonString],
-        ),
-        returnValue: _i3.Future<void>.value(),
-        returnValueForMissingStub: _i3.Future<void>.value(),
-      ) as _i3.Future<void>);
-
-  @override
   _i3.Future<List<_i4.HouseModel>> getHouses() => (super.noSuchMethod(
         Invocation.method(
           #getHouses,
@@ -48,4 +38,14 @@ class MockHouseLocalDataSource extends _i1.Mock
         returnValueForMissingStub:
             _i3.Future<List<_i4.HouseModel>>.value(<_i4.HouseModel>[]),
       ) as _i3.Future<List<_i4.HouseModel>>);
+
+  @override
+  _i3.Future<void> saveHouses(String? housesJsonString) => (super.noSuchMethod(
+        Invocation.method(
+          #saveHouses,
+          [housesJsonString],
+        ),
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
 }

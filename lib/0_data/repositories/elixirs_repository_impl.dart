@@ -1,4 +1,4 @@
-import 'package:dartz/dartz.dart';
+import 'package:domain/result.dart';
 import 'package:wizarding_world/0_data/datasources/elixirs/elixir_local_data_source.dart';
 import 'package:wizarding_world/0_data/datasources/elixirs/elixir_remote_data_source.dart';
 import 'package:domain/entities/elixir_entities/elixir_entity.dart';
@@ -13,19 +13,19 @@ class ElixirRepositoryImpl implements ElixirRepository {
       {required this.remoteDataSource, required this.localDataSource});
 
   @override
-  Future<Either<WizardingFailure, List<ElixirEntity>>> getElixirs() async {
+  Future<Result<List<ElixirEntity>, WizardingFailure>> getElixirs() async {
     try {
       final localElixirs = await localDataSource.getElixirs();
       if (localElixirs.isNotEmpty) {
-        return right(localElixirs);
+        return Success(localElixirs);
       }
 
       final elixirs = await remoteDataSource.getElixirs();
-      return right(elixirs);
+      return Success(elixirs);
     } on ServerFailure catch (failure) {
-      return left(failure);
+      return Failure(failure);
     } catch (failure) {
-      return left(GeneralFailure());
+      return Failure(GeneralFailure());
     }
   }
 }
