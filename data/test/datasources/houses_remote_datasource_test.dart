@@ -1,12 +1,9 @@
 import 'package:data/datasources/houses/house_local_data_source.dart';
 import 'package:data/datasources/houses/house_remote_data_source.dart';
-import 'package:data/models/house_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
 import 'package:http/testing.dart';
 import 'package:mockito/annotations.dart';
-import 'package:domain/entities/house_entities/head_entity.dart';
-import 'package:domain/entities/house_entities/trait_entity.dart';
 
 import 'houses_remote_datasource_test.mocks.dart';
 
