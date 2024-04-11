@@ -1,9 +1,8 @@
-import 'package:equatable/equatable.dart';
 import 'package:domain/entities/elixir_entities/elixir_entity.dart';
 import 'package:domain/entities/elixir_entities/ingredient_entity.dart';
 import 'package:domain/entities/elixir_entities/inventor_entity.dart';
 
-class ElixirModel extends ElixirEntity with EquatableMixin {
+class ElixirModel extends ElixirEntity {
   ElixirModel({
     required super.id,
     required super.name,
@@ -42,18 +41,4 @@ class ElixirModel extends ElixirEntity with EquatableMixin {
       manufacturer: json['manufacturer'] as String? ?? '',
     );
   }
-
-  @override
-  List<Object?> get props => [
-        id,
-        name,
-        effect,
-        sideEffects,
-        characteristics,
-        time,
-        difficulty,
-        ingredients,
-        inventors,
-        manufacturer,
-      ];
 }

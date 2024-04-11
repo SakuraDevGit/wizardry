@@ -1,9 +1,8 @@
-import 'package:equatable/equatable.dart';
 import 'package:domain/entities/house_entities/head_entity.dart';
 import 'package:domain/entities/house_entities/house_entity.dart';
 import 'package:domain/entities/house_entities/trait_entity.dart';
 
-class HouseModel extends HouseEntity with EquatableMixin {
+class HouseModel extends HouseEntity {
   HouseModel({
     required super.id,
     required super.name,
@@ -42,7 +41,4 @@ class HouseModel extends HouseEntity with EquatableMixin {
           .toList(),
     );
   }
-
-  @override
-  List<Object?> get props => [id];
 }

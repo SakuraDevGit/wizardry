@@ -62,35 +62,11 @@ void main() {
 
         final result = await adviceRemoteDatasourceUnderTest.getHouses();
 
-        expect(
-            result.first,
-            HouseModel(
-                id: '0367baf3-1cb6-4baf-bede-48e17e1cd005',
-                name: 'Gryffindor',
-                houseColours: 'Scarlet and gold',
-                founder: 'Godric Gryffindor',
-                animal: 'Lion',
-                element: 'Fire',
-                ghost: 'Nearly-Headless Nick',
-                commonRoom: 'Gryffindor Tower',
-                heads: [
-                  HeadEntity(
-                      id: '530da97d-5a83-4ea6-bc15-790edf5b5efc',
-                      firstName: 'Minerva',
-                      lastName: 'McGonagall'),
-                  HeadEntity(
-                      id: '9915c5f8-9177-4f63-bba8-d04387a404f9',
-                      firstName: 'Godric',
-                      lastName: 'Gryffindor')
-                ],
-                traits: [
-                  TraitEntity(
-                      id: '1773bce8-7a22-4d57-b8e1-7e1cbe26fa2b',
-                      name: 'Courage'),
-                  TraitEntity(
-                      id: '21f22e43-efd9-4a43-87f5-eab5fb1666ea',
-                      name: 'Chivalary')
-                ]));
+        expect(result.first.id, '0367baf3-1cb6-4baf-bede-48e17e1cd005');
+
+        expect(result.first.name, 'Gryffindor');
+
+        expect(result.first.houseColours, 'Scarlet and gold');
       });
     });
   });

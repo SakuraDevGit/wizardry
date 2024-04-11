@@ -1,11 +1,6 @@
-// I want a dart model that will extend HouseEntity with an EquatableMixin.
-// I want a factory constructor that will take a json map and return a HouseModel.
-// This SpellModel class must be similar to the HouseModel class.
-
-import 'package:equatable/equatable.dart';
 import 'package:domain/entities/spell_entities/spell_entity.dart';
 
-class SpellModel extends SpellEntity with EquatableMixin {
+class SpellModel extends SpellEntity {
   SpellModel({
     required super.id,
     required super.name,
@@ -29,7 +24,4 @@ class SpellModel extends SpellEntity with EquatableMixin {
       creator: json['creator'] as String? ?? '',
     );
   }
-
-  @override
-  List<Object?> get props => [id];
 }
