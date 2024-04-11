@@ -1,11 +1,12 @@
+import 'package:data/repositories/house_repository_impl.dart';
 import 'package:domain/result.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import '../../../data/lib/repositories/house_repository_impl.dart';
 import 'package:domain/entities/house_entities/house_entity.dart';
 import 'package:domain/failures/failures.dart';
 import 'package:domain/usecases/get_houses_usecase.dart';
+
 import 'get_houses_usecase_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<HouseRepositoryImpl>()])

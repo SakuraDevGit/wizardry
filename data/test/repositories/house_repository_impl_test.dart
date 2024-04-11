@@ -1,10 +1,10 @@
+import 'package:data/datasources/houses/house_remote_data_source.dart';
+import 'package:data/models/house_model.dart';
+import 'package:data/repositories/house_repository_impl.dart';
 import 'package:domain/result.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import '../../../data/lib/datasources/houses/house_remote_data_source.dart';
-import '../../../data/lib/models/house_model.dart';
-import '../../../data/lib/repositories/house_repository_impl.dart';
 import 'package:domain/failures/failures.dart';
 
 import '../datasources/houses_remote_datasource_test.mocks.dart';
