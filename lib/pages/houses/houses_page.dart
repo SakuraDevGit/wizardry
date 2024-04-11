@@ -26,27 +26,30 @@ class HousesPage extends StatelessWidget {
               itemCount: state.houses.length,
               itemBuilder: (context, index) {
                 final house = state.houses[index];
-                return ListTile(
-                  title: Text(house.name),
-                  subtitle: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Founder: ${house.founder}'),
-                      Text(
-                          'Heads: ${house.heads.map((head) => head.firstName).join(', ')}'),
-                      Text(
-                          'Traits: ${house.traits.map((trait) => trait.name).join(', ')}'),
-                    ],
+                return Card(
+                  child: ListTile(
+                    title: Text(house.name),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Founder: ${house.founder}'),
+                        Text(
+                            'Heads: ${house.heads.map((head) => head.firstName).join(', ')}'),
+                        Text(
+                            'Traits: ${house.traits.map((trait) => trait.name).join(', ')}'),
+                      ],
+                    ),
+                    trailing: const Icon(Icons.arrow_forward),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              HouseInformationPage(house: house),
+                        ),
+                      );
+                    },
                   ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            HouseInformationPage(house: house),
-                      ),
-                    );
-                  },
                 );
               },
             );

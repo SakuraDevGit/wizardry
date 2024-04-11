@@ -24,24 +24,27 @@ class SpellsPage extends StatelessWidget {
               itemCount: state.spells.length,
               itemBuilder: (context, index) {
                 final spell = state.spells[index];
-                return ListTile(
-                  title: Text(spell.name),
-                  subtitle: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Type: ${spell.type}'),
-                      Text('Effect: ${spell.effect}'),
-                    ],
+                return Card(
+                  child: ListTile(
+                    title: Text(spell.name),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Type: ${spell.type}'),
+                        Text('Effect: ${spell.effect}'),
+                      ],
+                    ),
+                    trailing: const Icon(Icons.arrow_forward),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              SpellsInformationPage(spell: spell),
+                        ),
+                      );
+                    },
                   ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            SpellsInformationPage(spell: spell),
-                      ),
-                    );
-                  },
                 );
               },
             );

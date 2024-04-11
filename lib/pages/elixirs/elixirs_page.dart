@@ -24,26 +24,29 @@ class ElixirsPage extends StatelessWidget {
               itemCount: state.elixirs.length,
               itemBuilder: (context, index) {
                 final elixir = state.elixirs[index];
-                return ListTile(
-                  title: Text(elixir.name),
-                  subtitle: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                          'Effect: ${elixir.effect.isEmpty ? 'Unknown' : elixir.effect}'),
-                      Text(
-                          'Ingredients: ${elixir.ingredients.map((ingredient) => ingredient.name).join(', ')}'),
-                    ],
+                return Card(
+                  child: ListTile(
+                    title: Text(elixir.name),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                            'Effect: ${elixir.effect.isEmpty ? 'Unknown' : elixir.effect}'),
+                        Text(
+                            'Ingredients: ${elixir.ingredients.map((ingredient) => ingredient.name).join(', ')}'),
+                      ],
+                    ),
+                    trailing: const Icon(Icons.arrow_forward),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              ElixirInformationPage(elixir: elixir),
+                        ),
+                      );
+                    },
                   ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            ElixirInformationPage(elixir: elixir),
-                      ),
-                    );
-                  },
                 );
               },
             );
