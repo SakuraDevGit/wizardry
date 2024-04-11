@@ -7,8 +7,8 @@ import 'package:domain/entities/house_entities/house_entity.dart';
 import 'package:domain/failures/failures.dart';
 import 'package:domain/usecases/get_houses_usecase.dart';
 import 'package:bloc_test/bloc_test.dart';
-import 'package:wizarding_world/2_application/pages/houses/cubit/houses_cubit.dart';
-import 'package:wizarding_world/2_application/pages/houses/cubit/houses_state.dart';
+import 'package:wizarding_world/pages/houses/cubit/houses_cubit.dart';
+import 'package:wizarding_world/pages/houses/cubit/houses_state.dart';
 import 'houses_cubit_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<GetHousesUseCase>()])

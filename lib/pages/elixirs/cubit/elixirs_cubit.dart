@@ -2,7 +2,7 @@ import 'package:domain/result.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:domain/failures/failures.dart';
 import 'package:domain/usecases/get_elixers_usecase.dart';
-import 'package:wizarding_world/2_application/pages/elixirs/cubit/elixirs_state.dart';
+import 'package:wizarding_world/pages/elixirs/cubit/elixirs_state.dart';
 
 class ElixirsCubit extends Cubit<ElixirsCubitState> {
   final GetElixirsUseCase getElixirsUseCase;

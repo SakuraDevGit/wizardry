@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wizarding_world/2_application/pages/spells/cubit/spells_cubit.dart';
-import 'package:wizarding_world/2_application/pages/spells/cubit/spells_state.dart';
-import 'package:wizarding_world/2_application/pages/spells/factory/spell_factory.dart';
-import 'package:wizarding_world/2_application/pages/spells/spells_information_page.dart';
+import 'package:wizarding_world/pages/spells/cubit/spells_cubit.dart';
+import 'package:wizarding_world/pages/spells/cubit/spells_state.dart';
+import 'package:wizarding_world/pages/spells/factory/spell_factory.dart';
+import 'package:wizarding_world/pages/spells/spells_information_page.dart';
 
 class SpellsPage extends StatelessWidget {
   const SpellsPage({super.key});

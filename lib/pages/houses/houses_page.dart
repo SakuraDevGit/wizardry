@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wizarding_world/2_application/pages/houses/cubit/houses_cubit.dart';
-import 'package:wizarding_world/2_application/pages/houses/cubit/houses_state.dart';
-import 'package:wizarding_world/2_application/pages/houses/factory/house_factory.dart';
-import 'package:wizarding_world/2_application/pages/houses/houses_information_page.dart';
+import 'package:wizarding_world/pages/houses/cubit/houses_cubit.dart';
+import 'package:wizarding_world/pages/houses/cubit/houses_state.dart';
+import 'package:wizarding_world/pages/houses/factory/house_factory.dart';
+import 'package:wizarding_world/pages/houses/houses_information_page.dart';
 
 class HousesPage extends StatelessWidget {
   const HousesPage({super.key});

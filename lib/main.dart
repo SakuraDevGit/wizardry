@@ -1,8 +1,8 @@
 import 'package:data/hive/hive_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wizarding_world/2_application/core/services/theme_service.dart';
-import 'package:wizarding_world/2_application/pages/main/main_page.dart';
+import 'package:wizarding_world/core/services/theme_service.dart';
+import 'package:wizarding_world/pages/main/main_page.dart';
 import 'package:wizarding_world/theme.dart';
 
 void main() async {

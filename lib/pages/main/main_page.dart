@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
-import 'package:wizarding_world/2_application/core/services/theme_service.dart';
-import 'package:wizarding_world/2_application/pages/elixirs/elixirs_page.dart';
-import 'package:wizarding_world/2_application/pages/houses/houses_page.dart';
-import 'package:wizarding_world/2_application/pages/main/cubit/main_cubit.dart';
-import 'package:wizarding_world/2_application/pages/spells/spells_page.dart';
+import 'package:wizarding_world/core/services/theme_service.dart';
+import 'package:wizarding_world/pages/elixirs/elixirs_page.dart';
+import 'package:wizarding_world/pages/houses/houses_page.dart';
+import 'package:wizarding_world/pages/main/cubit/main_cubit.dart';
+import 'package:wizarding_world/pages/spells/spells_page.dart';
 
 class MainPageWrapperProvider extends StatelessWidget {
   const MainPageWrapperProvider({super.key});

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wizarding_world/2_application/pages/elixirs/cubit/elixirs_cubit.dart';
-import 'package:wizarding_world/2_application/pages/elixirs/cubit/elixirs_state.dart';
-import 'package:wizarding_world/2_application/pages/elixirs/elixirs_information_page.dart';
-import 'package:wizarding_world/2_application/pages/elixirs/factory/elixir_factory.dart';
+import 'package:wizarding_world/pages/elixirs/cubit/elixirs_cubit.dart';
+import 'package:wizarding_world/pages/elixirs/cubit/elixirs_state.dart';
+import 'package:wizarding_world/pages/elixirs/elixirs_information_page.dart';
+import 'package:wizarding_world/pages/elixirs/factory/elixir_factory.dart';
 
 class ElixirsPage extends StatelessWidget {
   const ElixirsPage({super.key});

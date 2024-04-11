@@ -2,7 +2,7 @@ import 'package:domain/result.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:domain/failures/failures.dart';
 import 'package:domain/usecases/get_spells_usecase.dart';
-import 'package:wizarding_world/2_application/pages/spells/cubit/spells_state.dart';
+import 'package:wizarding_world/pages/spells/cubit/spells_state.dart';
 
 class SpellsCubit extends Cubit<SpellsCubitState> {
   final GetSpellsUseCase getSpellsUseCase;
