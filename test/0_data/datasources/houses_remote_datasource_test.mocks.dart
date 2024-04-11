@@ -6,9 +6,9 @@
 import 'dart:async' as _i3;
 
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:wizarding_world/0_data/datasources/houses/house_local_data_source.dart'
+import '../../../data/lib/datasources/houses/house_local_data_source.dart'
     as _i2;
-import 'package:wizarding_world/0_data/models/house_model.dart' as _i4;
+import '../../../data/lib/models/house_model.dart' as _i4;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values

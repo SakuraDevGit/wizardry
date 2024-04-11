@@ -10,12 +10,11 @@ import 'package:domain/failures/failures.dart' as _i8;
 import 'package:domain/result.dart' as _i6;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i9;
-import 'package:wizarding_world/0_data/datasources/houses/house_local_data_source.dart'
+import '../../../data/lib/datasources/houses/house_local_data_source.dart'
     as _i3;
-import 'package:wizarding_world/0_data/datasources/houses/house_remote_data_source.dart'
+import '../../../data/lib/datasources/houses/house_remote_data_source.dart'
     as _i2;
-import 'package:wizarding_world/0_data/repositories/house_repository_impl.dart'
-    as _i4;
+import '../../../data/lib/repositories/house_repository_impl.dart' as _i4;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values

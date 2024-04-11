@@ -2,9 +2,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
 import 'package:http/testing.dart';
 import 'package:mockito/annotations.dart';
-import 'package:wizarding_world/0_data/datasources/houses/house_local_data_source.dart';
-import 'package:wizarding_world/0_data/datasources/houses/house_remote_data_source.dart';
-import 'package:wizarding_world/0_data/models/house_model.dart';
+import '../../../data/lib/datasources/houses/house_local_data_source.dart';
+import '../../../data/lib/datasources/houses/house_remote_data_source.dart';
+import '../../../data/lib/models/house_model.dart';
 import 'package:domain/entities/house_entities/head_entity.dart';
 import 'package:domain/entities/house_entities/trait_entity.dart';
 

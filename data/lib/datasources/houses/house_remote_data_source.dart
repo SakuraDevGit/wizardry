@@ -1,8 +1,8 @@
 import 'dart:convert';
 
+import 'package:data/models/house_model.dart';
 import 'package:http/http.dart' as http;
-import 'package:wizarding_world/0_data/datasources/houses/house_local_data_source.dart';
-import 'package:wizarding_world/0_data/models/house_model.dart';
+import 'house_local_data_source.dart';
 import 'package:domain/failures/failures.dart';
 
 abstract class HouseRemoteDataSource {

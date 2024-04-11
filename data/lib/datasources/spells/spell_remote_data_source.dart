@@ -1,7 +1,7 @@
 import 'dart:convert';
+import 'package:data/models/spell_model.dart';
 import 'package:http/http.dart' as http;
-import 'package:wizarding_world/0_data/datasources/spells/spell_local_data_source.dart';
-import 'package:wizarding_world/0_data/models/spell_model.dart';
+import 'spell_local_data_source.dart';
 import 'package:domain/failures/failures.dart';
 
 abstract class SpellRemoteDataSource {

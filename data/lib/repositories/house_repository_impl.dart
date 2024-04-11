@@ -1,6 +1,6 @@
 import 'package:domain/result.dart';
-import 'package:wizarding_world/0_data/datasources/houses/house_local_data_source.dart';
-import 'package:wizarding_world/0_data/datasources/houses/house_remote_data_source.dart';
+import '../datasources/houses/house_local_data_source.dart';
+import '../datasources/houses/house_remote_data_source.dart';
 import 'package:domain/entities/house_entities/house_entity.dart';
 import 'package:domain/failures/failures.dart';
 import 'package:domain/repositories/house_repository.dart';

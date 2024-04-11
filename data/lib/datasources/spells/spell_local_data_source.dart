@@ -1,8 +1,8 @@
 import 'dart:convert';
+import 'package:data/hive/hive_constants.dart';
+import 'package:data/hive/stored_json_hive.dart';
+import 'package:data/models/spell_model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:wizarding_world/0_data/hive/hive_constants.dart';
-import 'package:wizarding_world/0_data/hive/stored_json_hive.dart';
-import 'package:wizarding_world/0_data/models/spell_model.dart';
 
 abstract class SpellLocalDataSource {
   Future<List<SpellModel>> getSpells();
