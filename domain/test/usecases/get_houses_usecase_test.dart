@@ -1,4 +1,4 @@
-import 'package:data/repositories/house_repository_impl.dart';
+import 'package:domain/repositories/house_repository.dart';
 import 'package:domain/result.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
@@ -9,7 +9,7 @@ import 'package:domain/usecases/get_houses_usecase.dart';
 
 import 'get_houses_usecase_test.mocks.dart';
 
-@GenerateNiceMocks([MockSpec<HouseRepositoryImpl>()])
+@GenerateNiceMocks([MockSpec<HouseRepository>()])
 void main() {
   final houseEntity = HouseEntity(
     id: '1',
@@ -31,7 +31,7 @@ void main() {
     group('should return house entity', () {
       test('when repository returns a HouseEntity', () async {
         // Arrange
-        final mockHouseRepo = MockHouseRepositoryImpl();
+        final mockHouseRepo = MockHouseRepository();
         final adviceUseCaseUnderTest =
             GetHousesUseCase(houseRepository: mockHouseRepo);
 
@@ -53,7 +53,7 @@ void main() {
     group('should return left with', () {
       test('a server failure when a server exception occurs', () async {
         // Arrange
-        final mockHouseRepo = MockHouseRepositoryImpl();
+        final mockHouseRepo = MockHouseRepository();
         final houseUseCaseUnderTest =
             GetHousesUseCase(houseRepository: mockHouseRepo);
         when(mockHouseRepo.getHouses())
@@ -75,7 +75,7 @@ void main() {
 
       test('a GeneralFailure when another Failure occurs', () async {
         // Arrange
-        final mockHouseRepo = MockHouseRepositoryImpl();
+        final mockHouseRepo = MockHouseRepository();
         final houseUseCaseUnderTest =
             GetHousesUseCase(houseRepository: mockHouseRepo);
         when(mockHouseRepo.getHouses())
