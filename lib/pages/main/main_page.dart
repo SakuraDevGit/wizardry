@@ -21,8 +21,16 @@ class MainPageWrapperProvider extends StatelessWidget {
           cubit.spellsRequested();
           return cubit;
         }),
-        BlocProvider(create: (context) => HouseFactory.createCubit()),
-        BlocProvider(create: (context) => ElixirFactory.createCubit()),
+        BlocProvider(create: (context) {
+          final cubit = HouseFactory.createCubit();
+          cubit.housesRequested();
+          return cubit;
+        }),
+        BlocProvider(create: (context) {
+          final cubit = ElixirFactory.createCubit();
+          cubit.elixirsRequested();
+          return cubit;
+        }),
       ],
       child: const MainPage(),
     );
