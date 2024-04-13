@@ -23,7 +23,10 @@ class SpellsCubit extends Cubit<SpellsCubitState> {
     }
   }
 
-  void spellRequested(String name, String type, String incantation) async {
+  void spellsRequestedWith(
+      {required String name,
+      required String type,
+      required String incantation}) async {
     if (state is SpellsStateLoading) return;
     if (name.isEmpty && type.isEmpty && incantation.isEmpty) {
       spellsRequested();
