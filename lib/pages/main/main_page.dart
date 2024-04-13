@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:wizarding_world/core/services/theme_service.dart';
 import 'package:wizarding_world/pages/elixirs/elixirs_page.dart';
+import 'package:wizarding_world/pages/elixirs/factory/elixir_factory.dart';
+import 'package:wizarding_world/pages/houses/factory/house_factory.dart';
 import 'package:wizarding_world/pages/houses/houses_page.dart';
-import 'package:wizarding_world/pages/main/cubit/main_cubit.dart';
+import 'package:wizarding_world/pages/spells/factory/spell_factory.dart';
 import 'package:wizarding_world/pages/spells/spells_page.dart';
 
 class MainPageWrapperProvider extends StatelessWidget {
@@ -12,8 +14,16 @@ class MainPageWrapperProvider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => MainCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) {
+          final cubit = SpellFactory.createCubit();
+          cubit.spellsRequested();
+          return cubit;
+        }),
+        BlocProvider(create: (context) => HouseFactory.createCubit()),
+        BlocProvider(create: (context) => ElixirFactory.createCubit()),
+      ],
       child: const MainPage(),
     );
   }

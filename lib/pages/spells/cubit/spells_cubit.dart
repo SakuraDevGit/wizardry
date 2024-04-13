@@ -9,6 +9,27 @@ class SpellsCubit extends Cubit<SpellsCubitState> {
 
   SpellsCubit({required this.getSpellsUseCase}) : super(SpellsStateInitial());
 
+  var _searchName = '';
+  var _searchType = '';
+  var _searchIncantation = '';
+
+  void onNameChanged(String query) {
+    _searchName = query;
+  }
+
+  void onTypeChanged(String query) {
+    _searchType = query;
+  }
+
+  void onIncantationChanged(String query) {
+    _searchIncantation = query;
+  }
+
+  void onSearchPressed() {
+    spellsRequestedWith(
+        name: _searchName, type: _searchType, incantation: _searchIncantation);
+  }
+
   void spellsRequested() async {
     if (state is SpellsStateLoading) return;
     emit(SpellsStateLoading());
