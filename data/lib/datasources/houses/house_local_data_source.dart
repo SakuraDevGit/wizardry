@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:data/hive/hive_constants.dart';
 import 'package:data/hive/stored_json_hive.dart';
-import 'package:data/models/house_model.dart';
+import 'package:data/models/house_models/house_model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 abstract class HouseLocalDataSource {

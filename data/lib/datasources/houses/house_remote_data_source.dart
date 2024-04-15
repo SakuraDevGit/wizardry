@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:data/models/house_model.dart';
+import 'package:data/models/house_models/house_model.dart';
 import 'package:http/http.dart' as http;
 import 'house_local_data_source.dart';
 import 'package:domain/failures/failures.dart';

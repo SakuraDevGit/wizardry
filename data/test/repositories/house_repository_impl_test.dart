@@ -1,5 +1,5 @@
 import 'package:data/datasources/houses/house_remote_data_source.dart';
-import 'package:data/models/house_model.dart';
+import 'package:data/models/house_models/house_model.dart';
 import 'package:data/repositories/house_repository_impl.dart';
 import 'package:domain/result.dart';
 import 'package:flutter_test/flutter_test.dart';

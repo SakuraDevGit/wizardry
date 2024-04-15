@@ -1,6 +1,6 @@
-import 'package:domain/entities/house_entities/head_entity.dart';
+import 'package:data/models/house_models/head_model.dart';
+import 'package:data/models/house_models/trait_model.dart';
 import 'package:domain/entities/house_entities/house_entity.dart';
-import 'package:domain/entities/house_entities/trait_entity.dart';
 
 class HouseModel extends HouseEntity {
   HouseModel({
@@ -27,17 +27,10 @@ class HouseModel extends HouseEntity {
       ghost: json['ghost'],
       commonRoom: json['commonRoom'],
       heads: json['heads']
-          .map<HeadEntity>((head) => HeadEntity(
-                id: head['id'],
-                firstName: head['firstName'],
-                lastName: head['lastName'],
-              ))
+          .map<HeadModel>((head) => HeadModel.fromJson(head))
           .toList(),
       traits: json['traits']
-          .map<TraitEntity>((trait) => TraitEntity(
-                id: trait['id'],
-                name: trait['name'],
-              ))
+          .map<TraitModel>((trait) => TraitModel.fromJson(trait))
           .toList(),
     );
   }
